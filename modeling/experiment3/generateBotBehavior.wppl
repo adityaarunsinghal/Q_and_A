@@ -1,4 +1,4 @@
-var completeRow = function (grid) {
+generateBotBehavior.wpplvar completeRow = function (grid) {
   return qa.completeRow('A', grid) || qa.completeRow('B', grid) || qa.completeRow('C', grid);
 };
 

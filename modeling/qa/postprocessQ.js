@@ -74,7 +74,7 @@ function mapQuestionSame(goal, question, state) {
   }
 }
 
-var questionerData = readCSV('../../data/experiment3/questionFromMongo_clean.csv');
+var questionerData = readCSV('data/experiment3/answerFromMongo_clean.csv');
 
 var fixedQuestionerData = _.flatten(
   _.values(

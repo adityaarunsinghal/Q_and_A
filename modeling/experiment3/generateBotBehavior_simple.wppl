@@ -1,0 +1,33 @@
+generateBotBehavior.wpplvar completeRow = function (grid) {
+  return qa.completeRow('A', grid) || qa.completeRow('B', grid) || qa.completeRow('C', grid);
+};
+
+var completeCol = function (grid) {
+  return qa.completeCol('1', grid) || qa.completeCol('2', grid) || qa.completeCol('3', grid);
+};
+
+var colRowExists = function(grid) {
+  return completeRow(grid) && completeCol(grid);
+}
+
+var model = SpatialModel_4x4(13, 2.5, .5);
+var answerer = model.answerer;
+var questioner = model.questioner;
+var worldPrior = model.worldPrior;
+var makeValidQuestionPrior = model.makeValidQuestionPrior;
+
+var exampleR2_safe = {
+  world: {"A1":"safe","A2":"safe","A3":"unsafe","B1":"unsafe","B2":"safe","B3":"safe","C1":"safe","C2":"safe","C3":"safe"},
+  initState: {"safe":["A1", "A2"],"unsafe":['A3']}
+}
+
+console.log('question on R2 after safe');
+console.log(questioner('pragmatic', ['A','B','C'], exampleR2_safe.initState));
+
+var exampleR2_unsafe = {
+  world: {"A1":"safe","A2":"safe","A3":"unsafe","B1":"unsafe","B2":"safe","B3":"safe","C1":"safe","C2":"safe","C3":"safe"},
+  initState: {"safe":["A1", "C1"],"unsafe":['A3']}
+}
+
+console.log('question on R2 after unsafe');
+console.log(questioner('pragmatic', ['A','B','C'], exampleR2_unsafe.initState));

@@ -83,7 +83,7 @@ var spatialLocationAnswerMeaning = function(utterance){
 };
 
 // this cuts out answers that are literally false (mostly for
-// computaitonal efficiency reasons)
+// computational efficiency reasons)
 var makeTruthfulAnswerPrior = dp.cache(function(question, trueWorld, gridState) {
   var cellAskedAbout = question.split("_")[1];
   var validAnswers = filter(function(answer) {
